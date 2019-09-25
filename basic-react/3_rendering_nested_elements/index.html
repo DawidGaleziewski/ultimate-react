@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rendering</title>
+</head>
+<body>
+
+    <div id="root">
+
+    </div>
+ 
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+
+    <script type="text/javascript">
+
+            const articleHeading = React.createElement(
+                'h2',
+                 null,
+                'My first blog post'
+            );
+
+            const paragraph = React.createElement(
+                'p',
+                 {className: 'text'},
+                 'This is content of my post'
+
+            )
+
+            const article = React.createElement(
+                'article',
+                 null,
+                 //We can add as many siblings next to each other after 2nd value. articleHeading and paragraph will be siblings
+                 articleHeading,
+                 paragraph
+            );
+
+            const mainHeading = React.createElement(
+                'h1',
+                null, 
+                'My Blog'
+            );
+
+            const main = React.createElement(
+                'main', 
+                {id: 'main'},
+                mainHeading, //This is the way we will nest h1 elemen into the main element
+                article
+            );
+
+            ReactDOM.render(main, document.getElementById('root'))
+
+    </script>
+</body>
+</html>
