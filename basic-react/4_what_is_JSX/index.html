@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="root">
+
+    </div>
+    
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+
+    <!-- Adding babel cdn - transpiler for our JSX syntax -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <!-- In order to use babel we need to change the script tag from text/javascript to text/babel -->
+    <script type="text/babel">
+
+        //JSX - allows us to write html-like syntaxt instead of using React.createElement()
+         //Browser does not understand JSX and we will need transplier - translating javascript
+         //We will use babel as our transpiler
+            //This is a diffrent way of writting React.createElement function. THIS IS NOT HTML this is javascript
+        const myButton = <button type="button">Save</button>
+
+        ReactDOM.render(myButton, document.getElementById('root'));
+    </script>
+</body>
+</html>
