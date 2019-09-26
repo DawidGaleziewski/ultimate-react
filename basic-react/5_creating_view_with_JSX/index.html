@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root">
+
+    </div>
+    
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <!-- Rewrite bottom examples into JSX -->
+    <script type="text/babel">
+
+            // const articleHeading = React.createElement(
+            //     'h2',
+            //      null,
+            //     'My first blog post'
+            // );
+
+
+            // const paragraph = React.createElement(
+            //     'p',
+            //      {className: 'text'},
+            //      'This is content of my post'
+
+            // )
+
+            // const article = React.createElement(
+            //     'article',
+            //      null,
+            //      be siblings
+            //      articleHeading,
+            //      paragraph
+            // );
+
+            // const mainHeading = React.createElement(
+            //     'h1',
+            //     null, 
+            //     'My Blog'
+            // );
+
+            // const main = React.createElement(
+            //     'main', 
+            //     {id: 'main'},
+            //     mainHeading, 
+            //     article
+            // );
+
+            //IMPORTANT - when we declear JSX we can only return ONE element
+                //Putting two elements will throw a error:
+                //Uncaught SyntaxError: Inline Babel script: Adjacent JSX elements must be wrapped in an enclosing tag (46:12)
+
+            const main = (
+            //We can try to work with wrapping the two sibling elements in div but this will polute the dom with to many tags
+            //We can work around it with <React.Fragment> tag
+                //you can use empty tags <></> but this only works with newest versions of babel
+                <React.Fragment>
+                    <main id="main">
+                        <h1>My Blog</h1>
+                        <article>
+                            <h2>My first blog post</h2>
+                            <p>This is the content of my post</p>
+                        </article>
+                    </main>
+                    <footer>
+                        <span>Some footer text</span>
+                    </footer>
+                </React.Fragment>
+            )
+
+
+            ReactDOM.render(main, document.getElementById('root'))
+
+    </script>
+</body>
+</html>
