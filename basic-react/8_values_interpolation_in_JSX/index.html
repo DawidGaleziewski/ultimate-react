@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+    
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+
+        // We can use {} to put variable inside of a tag that will be rendered
+
+        const someText = 'I am some interpolated text';
+        const savedClassName = 'ice-cream-decoration'
+        //We can also interpolate props/attributes
+        const paragraph = <p className= {savedClassName} >This is from "tag". {someText}</p>
+
+        //We can use javaScript logic in JSX
+        let count = 0;
+
+        const interval = setInterval(() => {
+            const paragraphInt = <p>{count}</p>;
+            //Calling render everytime here is a bad idea in real application! This is for demonstration purpose only
+            ReactDOM.render(paragraphInt, document.getElementById('root'));
+            if(count ===1000){
+                clearInterval(interval)
+            } else{
+                count++
+            }
+        }, 30);
+
+
+    </script>
+</body>
+</html>

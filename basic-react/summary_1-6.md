@@ -34,6 +34,22 @@
 
 #Rendering react DOM element
 	ReactDOM.render(variableName, htmlElement/document.getElementById('root'));
+	*There should always be only one element/tag rendered. If we wan to render couple of siblings we need to enclose them in <React.Fragment> tag or <></>. Second option needs special configuration and will not work for all babel versions
+
+	<React.Fragment>
+		<h1>Title</h1>
+		<h2>Subtitle</h2>
+		<p>Some text here</p>
+	</React.Fragment>
+
+	OR
+
+	<>
+		<h1>Title</h1>
+		<h2>Subtitle</h2>
+		<p>Some text here</p>
+	</>
+
 
 
 #JSX basic setup
@@ -49,5 +65,24 @@
 	*JSX syntax:
 		const button = <button type="button">Save</button>
 
+#HTML and JSX relation
+	*There are some differences between JSX and HTML to keep in mind when it comes to attributes in tags
+	*JSX syntax fallows camelCase when it commes to attributes
+
+	*HTML=> JSX
+	maxlength="10" => maxLength="10"
+	readonly => readOnly
+	class="list-item--decor" => className="list-item--decor"
+	for="form-input" =>  htmlFor="form-input"
+
+	*JSX tags needs to be ALWAYS closed:
+	<input>/<input/> -- input closing tag is optional in HTML
+	<input/> -- it needs to be always opened
+
+	ARIA is exception from this rule:
+	<div aria-label="label for input">
 
 
+
+========JS to learn more on:========
+1. setInterval/clearInterval and why we keep those in variables

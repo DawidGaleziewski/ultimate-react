@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ARIA in HTML -->
+    <input aria-label="This is a test input" type="text">
+    
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+        const input = (
+            // Exception from the rule!
+            //Aria is writen same as in HTML and not in camelCase: 
+            //aria-label
+            <input 
+                aria-label="label-for-aria" type="text"
+            />
+        )
+
+        ReactDOM.render(input, document.getElementById('root'))
+    </script>
+</body>
+</html>
