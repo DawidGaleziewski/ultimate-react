@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root">
+
+    </div>
+    
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+        //We can pass arguments or PROPS to the react components just like in functions
+            //We need to however use props object for this
+            //components will accept ONE json props object
+
+        const Paragraph = props => <p>{props.text}</p>
+
+        //We can also pass props in es6 destructure object syntax
+
+        const Paragraph2 = ({text}) => <p>{text}</p>
+
+        //Using object data type as a props
+        const ErrorBlock = ({error}) => error.hasError ? <p>{error.message}</p> : <p>Everything is fine</p>
+
+        const error1 = {
+            hasError: true,
+            message: 'God dammit, again Steve?'
+        }
+
+        const error2 = {
+            hasError: false,
+            message: null
+        }
+
+        const container = (
+            //We define what will be the key value pair of the props in the instance of the component
+            //Same syntax as with html tags, however tag and its value will be a key-value pair in the props object
+                //When we pass object data type we need to put it in curly braces {}
+            <div>
+                <Paragraph text="Sally props" />
+                <Paragraph2 text="destructure syntax" />
+                <ErrorBlock error= {error1} />
+                <ErrorBlock error= {error2} />
+            </div>
+        )
+
+        //React components should be pure functions with regards to its props. They should never DIRECTLY modify any of its props.
+
+        ReactDOM.render(container, document.getElementById('root'))
+    </script>
+</body>
+</html>

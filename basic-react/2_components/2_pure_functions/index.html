@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root">
+
+    </div>
+    
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+        
+        //Pure function is one, that will use only its arguments, and wont modify them while executing
+            //this function will always return 200 with params 10, 20
+        //Writing pure functions helps us create better react components
+        const calculatePure = (x,y) => x * y;
+
+        //This is not a pure function, we cannot predict resaults of it just by knowing the arguments
+        const someValue = 5;
+        const calculateNotPure = (x,y) => x * y * someValue;
+
+
+        //This is also not a pure function as it did modify one of its arguments
+        const myCart = [];
+        const order = (cart, item)=> {
+            cart.push(item);
+        }
+
+        order(myCart, 'Video')
+
+        const paragraph = <p>{JSON.stringify(myCart)}</p>
+
+        ReactDOM.render(paragraph, document.getElementById('root'))
+    </script>
+</body>
+</html>

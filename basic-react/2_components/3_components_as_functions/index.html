@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root">
+
+    </div>
+    
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+
+    //Functions can return:
+        //strings
+        const getText = name => `My name is ${name}`;
+
+        //Numeric values
+        const calculate = (x,y) => x * y;
+
+        //Objects
+        const getSetAction = name => ({type: 'SET_NAME', name})
+
+        //Functions can return a VIEW
+        //In essence, javascript components are functions that return view
+            //Convention is that the react components should be capitalized
+        const Paragraph = () => <p>Sally</p>
+
+        //We need to use JSON.stringify in order for it to be visible in the browser
+        //const containerOld = <div>{getParagraph()}</div>;
+
+        //This is how we write this in React convention
+            //Paragraph is a function that returns some view
+        const container =(
+            <div>
+                <Paragraph />
+            </div>
+        )
+
+        ReactDOM.render(container, document.getElementById('root'))
+    </script>
+</body>
+</html>
