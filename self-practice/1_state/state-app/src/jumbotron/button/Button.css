@@ -1,0 +1,12 @@
+.submitButton {
+    background-color: #5d1451;
+    border: 2px solid #94ceca;
+    font-family: inherit;
+    border-radius: 5px;
+    padding: 0.5rem;
+    color: #94ceca;
+    margin: 0 auto;
+    display: block;
+    cursor: pointer;
+    
+}

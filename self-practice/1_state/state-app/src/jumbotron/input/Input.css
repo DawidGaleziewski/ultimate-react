@@ -1,0 +1,13 @@
+.jumbo-input {
+    margin: 0.5rem auto;
+    display: block;
+    background-color: #14868c;
+    border-color: #5d1451;
+    padding: 0.5rem;
+}
+
+.jumbo-input:focus {
+    background-color: #94ceca;
+    
+}
+
