@@ -28,23 +28,32 @@ const App = ()=> {
         {id: 4, name: 'Spring'}
       ];
   
+      const arr1 = [
+        'Winter',
+        'Summer',
+        'Autumn',
+        'Spring'
+      ];
+
       const arr2 = [
-        {id: 1, name: 'Winter'}, 
-        {id: 2, name: 'Summer'}, 
-        {id: 3, name: 'Autumn'}, 
-        {id: 4, name: 'Spring'}
+        'Winter',
+        'Autumn',
+        'Spring',
+        'Summer',
       ];
 
       //Using state
-    const [list, setList] = useState(arr)
-
+    const [list, setList] = useState(arr1)
+    const onClickHandler = ()=> {
+      setList(list === arr1 ? arr2 : arr1)
+    }
 
 
     //Sometimes it is good to move more complex structure like a list into its own variable so we can focus on what we literate in the return
-    const displayList = arr.map(
+    const displayList = list.map(
         (item, index) => (
-            <li key={index.toString()}> 
-              <label htmlFor={`item-${index}`}>{item.name}</label>
+            <li key={item}> 
+              <label htmlFor={`item-${index}`}>{item}</label>
               <input id={`item-${index}`} type="text"/>
             </li>
           )
@@ -52,7 +61,14 @@ const App = ()=> {
   
 
     //First array - cororect key
-    //Second array - bad array
+    //Second array - bad array - using index ass key prop
+
+    //! When we used index as a key prop and try to use state to swap two array of lists with inputs and labels
+          //! values will swap but NOT the input
+          //! reconciler cannot calculate which input should be displayed in which list item
+          //! This is not only costly for reconciler but also hard to troubleshoot when went wrong
+
+    //We can use key prop with <Fragment key={uniqueid}>
     return (
       <div className="App">
           <ul className="good">
@@ -67,6 +83,8 @@ const App = ()=> {
           <ul className="bad">
               {displayList}
           </ul>
+
+          <button onClick={onClickHandler} type="button">Change</button>
       </div>
     );
   }
