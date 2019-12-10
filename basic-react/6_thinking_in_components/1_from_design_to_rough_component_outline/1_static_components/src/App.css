@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f9f5f1;
+  font-family: sans-serif;
+}
+
+header {
+  text-align: center;
+  border-bottom: 2px solid black;
+}
+
+main {
+  text-align: center;
+}
+
+section {
+  display: inline-block;
+  width: 49%;
+  padding: 2rem;
+  border: 1px solid black;
+  border-top: none;
+  vertical-align: top;
+}
+
+form label,
+form input,
+form textarea,
+form button {
+  display: block;
+  text-align: left;
+  margin-top: 1rem;
+}
+
+.single-record {
+  background-color: #f8f6f8;
+  border: 1px solid black;
+  list-style: none;
+  padding: 2rem;
+  margin: 1.5rem;
+}
